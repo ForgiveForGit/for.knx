@@ -1,3 +1,7 @@
+**NOTE: The only difference with the original org.knx is the hardcoded physical address of "15.15.255"**. This fixes the issue with actuator + IP interface combination devices (such as Zennio ALLinBOXv2), where in the original Homey KNX App, the Homey KNX app detects the physical address of the IP interface but as this is the same as the actuator's physical address, the actuator doesn't process telegrams coming from itself. Hardcoding 15.15.255 makes sure this physical address is different from **most** environments. If you use 15.15.x in your KNX environment, make sure this 15.15.255 is free and will always stay unused in the KNX setup. 
+
+**If you use a dedicated IP Interface, for example the Weinzierl IP Interface, this version is not applicable for you (but should still work). Stick to the original org.knx version**
+
 # KNX
 
 Add your KNX devices to Homey. This app requires a KNX IP Router or Interface connected to the same Wi-Fi network as Homey. Please make sure that either Homey is the only KNX/IP device in your network or that your IP interface can handle multiple simultaneous connections.
