@@ -258,8 +258,9 @@ class KNXApp extends Homey.App {
     }
 
     // The following functions work with a string value simply because the knx lib does a lot of the conversion for us
-    if (args.data_type === 'none') {
+    if (!args.data_type || args.data_type === 'none' || args.data_type.name === 'none') {
       await knxInterfaceToUse.writeKNXGroupAddress(args.group_address, args.value);
+      return;
     }
 
     await knxInterfaceToUse.writeKNXGroupAddress(args.group_address, args.value, args.data_type.name);
